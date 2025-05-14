@@ -29,7 +29,7 @@ class Book extends LibraryItem{
         this.genre = genre;
     }
     describe(){
-        return `Book: ${this.title} by ${this.author}, Genre: ${this.genre}.`
+        return `Book: ${this.title} by ${this.author}, Genre: ${this.genre}, Is available: ${this.isAvailable}.`
     }
 };
 
@@ -40,7 +40,7 @@ class DVD extends LibraryItem{
         this.duration = duration;
     }
     describe(){
-        return `DVD: ${this.title} by ${this.director}, Runtime: ${this.duration}.`
+        return `DVD: ${this.title} by ${this.director}, Runtime: ${this.duration}, Is available: ${this.isAvailable}.`
     }
 };
 
@@ -51,7 +51,7 @@ class Magazine extends LibraryItem{
         this.publisher = publisher;
     }
     describe(){
-        return `Magazine: ${this.title} by ${this.publisher}, Issue number: ${this.issueNumber}.`
+        return `Magazine: ${this.title} by ${this.publisher}, Issue number: ${this.issueNumber}, Is available: ${this.isAvailable}.`
     }
 };
 
