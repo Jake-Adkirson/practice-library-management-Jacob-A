@@ -5,64 +5,65 @@ class LibraryItem{
         this.isAvailable = isAvailable;
     }
     checkOut(){
-        return this.isAvailable = false;
+       if(this.isAvailable){
+        this.isAvailable = false;
+       console.log(`${this.title} has been checked out.`);
+       } else {
+        console.log(`$this.title} is already checked out.`);
+       }
     }
     returnItem(){
-        return this.isAvailable = true;
+        if(!this.isAvailable){
+            this.isAvailable = true;
+            console.log(`${this.title} has been returned.`);
+        } else {
+            console.log(`${this.title} has already been returned.`);
+        }
     }
 };
 
 class Book extends LibraryItem{
-    constructor(author, genre){
-        super();
+    constructor(title, id, isAvailable, author, genre){
+        super(title, id, isAvailable);
         this.author = author;
         this.genre = genre;
     }
-    getAuthor(){
-        return `${this.author} wrote the book "${this.title}".`
+    describe(){
+        return `Book: ${this.title} by ${this.author}, Genre: ${this.genre}.`
     }
 };
 
 class DVD extends LibraryItem{
-    constructor(director, duration){
-        super();
+    constructor(title, id, isAvailable, director, duration){
+        super(title, id, isAvailable);
         this.director = director;
         this.duration = duration;
     }
-    getDirector(){
-        return `${this.director} directed the film "${this.title}".`
+    describe(){
+        return `DVD: ${this.title} by ${this.director}, Runtime: ${this.duration}.`
     }
 };
 
 class Magazine extends LibraryItem{
-    constructor(issueNumber, publisher){
-        super();
+    constructor(title, id, isAvailable, issueNumber, publisher){
+        super(title, id, isAvailable);
         this.issueNumber = issueNumber;
         this.publisher = publisher;
     }
-    getPublisher(){
-        return `${this.publisher} published the really super cool magazine known as "${this.title}".`
+    describe(){
+        return `Magazine: ${this.title} by ${this.publisher}, Issue number: ${this.issueNumber}.`
     }
 };
 
-let percyJackson = new Book("Rick Riordan", "Fantasy");
-percyJackson.title = "The Lightning Thief";
-percyJackson.id = 109;
-percyJackson.isAvailable = true;
+let percyJackson = new Book("The Lightning Thief", 109, true, "Rick Riordan", "Fantasy");
 
 console.log(percyJackson);
 
-let standByMe = new DVD("Rob Reiner", "89 Minutes");
-standByMe.title = "Stand By Me";
-standByMe.id = 1;
-standByMe.isAvailable = false;
+let standByMe = new DVD("Stand By Me", 1, false, "Rob Reiner", "89 Minutes");
 
 console.log(standByMe);
 
-let coolGuyMag = new Magazine(363, "Cool Guy Publishing");
-coolGuyMag.title = "Coooooool Guy Magazine";
-coolGuyMag.id = 45;
-coolGuyMag.isAvailable = true;
+let coolGuyMag = new Magazine("Coooooool Guy Magazine", 45, true, 363, "Cool Guy Publishing");
 
 console.log(coolGuyMag);
 
@@ -72,6 +73,10 @@ console.log(percyJackson);
 standByMe.returnItem();
 console.log(standByMe);
 
-console.log(standByMe.getDirector());
-console.log(percyJackson.getAuthor());
-console.log(coolGuyMag.getPublisher());
+console.log(standByMe.describe());
+console.log(percyJackson.describe());
+console.log(coolGuyMag.describe()); 
+
+
+
+
